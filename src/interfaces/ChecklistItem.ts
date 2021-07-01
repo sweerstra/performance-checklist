@@ -23,6 +23,7 @@ export interface Solution {
 }
 
 export interface ChecklistItemModel {
+    slug: string,
     title: string,
     description: string,
     categoryId: string,

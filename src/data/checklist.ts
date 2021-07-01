@@ -2,6 +2,7 @@ import { ChecklistItemModel, Discipline, Solution, SolutionCategory } from '../i
 
 export default [
     {
+        slug: "optimize-1",
         title: "Optimize something",
         description: "Optimize something description",
         categoryId: "1",
@@ -14,6 +15,7 @@ export default [
         ]
     },
     {
+        slug: "optimize-2",
         title: "Optimize another something",
         description: "Optimize something else description",
         categoryId: "2",
