@@ -3,7 +3,7 @@
 	import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
 	import checklistData from "../data/checklist";
 	import FilteredChecklist from "../container/FilteredChecklist.svelte";
-	import ChecklistItemView from "../components/ChecklistItemView.svelte";
+	import ChecklistItemDetail from "../components/ChecklistItemDetail.svelte";
 
 	export let slug: string = undefined;
 
@@ -39,7 +39,7 @@
 
 	{#if selectedItem}
 		<div class="container">
-			<ChecklistItemView item={selectedItem} />
+			<ChecklistItemDetail item={selectedItem} />
 		</div>
 	{/if}
 </main>
