@@ -2,7 +2,7 @@
 	import { navigate } from "svelte-routing";
 	import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
 	import checklistData from "../data/checklist";
-	import FilteredChecklist from "../container/FilteredChecklist.svelte";
+	import FilteredChecklist from "../containers/FilteredChecklist.svelte";
 	import ChecklistItemDetail from "../components/ChecklistItemDetail.svelte";
 
 	export let slug: string = undefined;
