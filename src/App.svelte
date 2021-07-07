@@ -5,6 +5,5 @@
 
 <Router>
 	<Route path="/" component={ChecklistPage} />
-	<Route path="items" component={ChecklistPage} />
-	<Route path="items/:slug" component={ChecklistPage} />
+	<Route path="/:slug" component={ChecklistPage} />
 </Router>
