@@ -6,7 +6,7 @@
 
 <div>
     <h2>{item.title}</h2>
-    <h3>{item.description}</h3>
+    <p>{item.description}</p>
     <ul>
         {#each item.solutions as solution}
             <li>{solution.description} x {solution.category}</li>
