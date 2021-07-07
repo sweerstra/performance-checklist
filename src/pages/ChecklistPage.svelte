@@ -28,52 +28,36 @@
 	}
 </script>
 
-<main>
-	<header>
-		<h1 class="text-center no-margin">Performance Checklist</h1>
-	</header>
+<div class="page">
+  <header>
+    <h1>Performance Checklist</h1>
+  </header>
 
-	<aside class="sidebar">
-		<FilteredChecklist {selectedItem} on:select={onChecklistItemSelect} />
-	</aside>
+  <main>
+    <FilteredChecklist {selectedItem} on:select={onChecklistItemSelect} />
 
-	{#if selectedItem}
-		<div class="container">
-			<ChecklistItemDetail item={selectedItem} />
-		</div>
-	{/if}
-</main>
+    {#if selectedItem}
+      <div class="container">
+        <ChecklistItemDetail item={selectedItem} />
+      </div>
+    {/if}
+  </main>
+</div>
 
 <style>
+  .page {
+		max-width: 90em;
+		margin: 0 auto;
+    padding: 0 1em;
+  }
+
 	main {
 		display: grid;
-		grid-template-columns: 30rem 1fr;
-		grid-template-rows: auto 1fr;
-		grid-gap: 2rem 4rem;
-		min-height: 100vh;
-		padding: var(--spacer-4) var(--spacer-7);
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	header {
-		grid-column: 1 / -1;
-	}
-
-	aside {
-		max-width: 30rem;
-	}
-
-	.container {
-		width: 100%;
-		max-width: 60rem;
-		margin: 0 auto;
+		grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
 	}
 
 	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
 		font-size: 3rem;
-		font-weight: 100;
 	}
 </style>

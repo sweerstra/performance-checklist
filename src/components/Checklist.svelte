@@ -13,7 +13,7 @@
     }
 </script>
 
-<ul class="list-unstyled">
+<ul class="list">
     {#each items as item}
         <ChecklistItem
             {item}
@@ -22,3 +22,12 @@
         />
     {/each}
 </ul>
+
+
+<style>
+	.list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+</style>
