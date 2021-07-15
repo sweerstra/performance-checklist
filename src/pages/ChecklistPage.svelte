@@ -4,7 +4,7 @@
   import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
   import checklistData from "../data/checklist";
   import FilteredChecklist from "../containers/FilteredChecklist.svelte";
-  import ChecklistItemDetail from "../components/ChecklistItemDetail.svelte";
+  import PerformanceDetails from "../components/PerformanceDetails.svelte";
 
   export let slug: string = undefined;
 
@@ -41,7 +41,7 @@
 
     {#if selectedItem}
       <div class="container" in:fly={{ x: 200, duration: 500 }}>
-        <ChecklistItemDetail item={selectedItem} />
+        <PerformanceDetails item={selectedItem} />
         <button on:click={onClose} class="btn-close">
           <svg
             width="16"
