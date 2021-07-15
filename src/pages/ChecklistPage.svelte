@@ -1,35 +1,33 @@
 <script lang="ts">
-	import { navigate } from "svelte-routing";
-  import { fly } from 'svelte/transition';
-	import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
-	import checklistData from "../data/checklist";
-	import FilteredChecklist from "../containers/FilteredChecklist.svelte";
-	import ChecklistItemDetail from "../components/ChecklistItemDetail.svelte";
+  import { navigate } from "svelte-routing";
+  import { fly } from "svelte/transition";
+  import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
+  import checklistData from "../data/checklist";
+  import FilteredChecklist from "../containers/FilteredChecklist.svelte";
+  import ChecklistItemDetail from "../components/ChecklistItemDetail.svelte";
 
-	export let slug: string = undefined;
+  export let slug: string = undefined;
 
-	let selectedItem: ChecklistItemModel;
+  let selectedItem: ChecklistItemModel;
 
-	// update selectedItem when slug changes
-	$: selectedItem = getChecklistItemBySlug(slug);
+  // update selectedItem when slug changes
+  $: selectedItem = getChecklistItemBySlug(slug);
 
-	function onChecklistItemSelect(event: CustomEvent<string>) {
-		const slug = event.detail;
-		navigateToItem(slug);
-	}
+  function onChecklistItemSelect(event: CustomEvent<string>) {
+    const slug = event.detail;
+    navigateToItem(slug);
+  }
 
-	function navigateToItem(slug: string) {
-		navigate(`/items/${slug}`, { replace: true });
-	}
+  function navigateToItem(slug: string) {
+    navigate(`/${slug}`, { replace: true });
+  }
 
-	function getChecklistItemBySlug(slug: string) {
-		return checklistData.find(
-			(checklistItem) => checklistItem.slug === slug
-		);
-	}
+  function getChecklistItemBySlug(slug: string) {
+    return checklistData.find((checklistItem) => checklistItem.slug === slug);
+  }
 
   function onClose() {
-      navigate(`/`, { replace: true });
+    navigate(`/`, { replace: true });
   }
 </script>
 
@@ -42,13 +40,19 @@
     <FilteredChecklist {selectedItem} on:select={onChecklistItemSelect} />
 
     {#if selectedItem}
-      <div class="container" transition:fly="{{ x: 200, duration: 500 }}">
+      <div class="container" in:fly={{ x: 200, duration: 500 }}>
         <ChecklistItemDetail item={selectedItem} />
         <button on:click={onClose} class="btn-close">
-<svg width="16" height="16" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/>
-  </svg>
-
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 1792 1792"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"
+            />
+          </svg>
         </button>
       </div>
     {/if}
@@ -57,8 +61,8 @@
 
 <style>
   .page {
-		max-width: 60em;
-		margin: 0 auto;
+    max-width: 60em;
+    margin: 0 auto;
     padding: 0 1em;
   }
 
@@ -72,9 +76,9 @@
     background: #303134;
   }
 
-	h1 {
-		font-size: 3rem;
-	}
+  h1 {
+    font-size: 3rem;
+  }
 
   .btn-close {
     position: absolute;
