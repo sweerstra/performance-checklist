@@ -4,21 +4,19 @@ export enum Discipline {
     DevOps = "DevOps",
 }
 
-export enum SolutionCategory {
+export enum Framework {
     NuxtJs = "Nuxt.js",
     NextJs = "Next.js",
+}
+
+export enum Category {
     JavaScript = "JavaScript",
     CSS = "CSS",
     Images = "Images",
 }
 
-export interface Category {
-    id: string,
-    name: string,
-}
-
-export interface Solution {
-    category: SolutionCategory,
+export interface ISolution {
+    category: Framework,
     description: string,
 }
 
@@ -26,7 +24,7 @@ export interface ChecklistItemModel {
     slug: string,
     title: string,
     description: string,
-    categoryId: string,
+    category: Category,
     disciplines: Discipline[],
-    solutions: Solution[],
+    solutions: ISolution[],
 };
