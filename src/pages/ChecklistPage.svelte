@@ -42,16 +42,6 @@
     {#if selectedItem}
       <div class="container" in:fly={{ x: 200, duration: 500 }}>
         <PerformanceDetails item={selectedItem} />
-        {#if selectedItem.canIUse}
-          <a
-            href="{`https://caniuse.com/${selectedItem.canIUse}`}"
-            target="_blank"
-            rel="noopener"
-          >
-            https://caniuse.com/{selectedItem.canIUse}
-          </a>
-        {/if}
-        <pre><code class="language-html">&lt;img src="/image.png" lazy="loading" /&gt;</code></pre>
         <button on:click={onClose} class="btn-close">
           <svg
             width="16"

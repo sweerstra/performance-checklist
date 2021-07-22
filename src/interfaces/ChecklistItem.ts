@@ -24,6 +24,7 @@ export interface ChecklistItemModel {
     slug: string,
     title: string,
     description: string,
+    usage?: string,
     category: Category,
     disciplines: Discipline[],
     solutions: ISolution[],

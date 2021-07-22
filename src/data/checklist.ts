@@ -7,6 +7,7 @@ export default [
         description: "In general, it’s recommended to lazy-load all expensive components, such as heavy JavaScript, videos, iframes, widgets, and potentially images. Native lazy-loading is already available for images and iframes with the loading attribute (only Chromium). Under the hood, this attribute defers the loading of the resource until it reaches a calculated distance from the viewport.",
         category: Category.JavaScript,
         disciplines: [Discipline.Frontend, Discipline.Backend],
+        usage: '``<img src="/image.png" lazy="loading" alt="" />``',
         solutions: [
             {
                 category: Framework.NuxtJs,

@@ -1,3 +1,11 @@
+code {
+  background: #272822;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
 :root {
   --spacer-1: 0.25rem;
   --spacer-2: 0.5rem;
@@ -30,16 +38,11 @@ body {
 }
 
 a {
-  color: rgb(0, 100, 200);
-  text-decoration: none;
+  color: #fff;
 }
 
 a:hover {
   text-decoration: underline;
-}
-
-a:visited {
-  color: rgb(0, 80, 160);
 }
 
 label {

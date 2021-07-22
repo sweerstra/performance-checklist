@@ -1,6 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
-    import PerformanceDetails from "./PerformanceDetails.svelte";
+    import PerformanceHeader from "./PerformanceHeader.svelte";
 
     import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
 
@@ -16,7 +16,7 @@
 
 <li class="item" class:is-active={isActive} on:click={onSelect}>
   <div class="checkbox"></div>
-  <PerformanceDetails item={item} />
+  <PerformanceHeader item={item} />
 </li>
 
 <style>
