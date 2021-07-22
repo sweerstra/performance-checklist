@@ -12,7 +12,8 @@ export default [
                 category: Framework.NuxtJs,
                 description: "This is how you optimize in JS"
             }
-        ]
+        ],
+        canIUse: 'loading-lazy-attr'
     },
     {
         slug: "optimize-2",

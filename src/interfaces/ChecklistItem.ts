@@ -27,4 +27,5 @@ export interface ChecklistItemModel {
     category: Category,
     disciplines: Discipline[],
     solutions: ISolution[],
+    canIUse?: string
 };
