@@ -15,7 +15,9 @@
 </script>
 
 <li class="item" class:is-active={isActive} on:click={onSelect}>
-  <div class="checkbox"></div>
+  <div class="checkbox">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 80 80"><path d="M26.56,75.19h-.12A5.51,5.51,0,0,1,22,72.81L3,45.24A4,4,0,1,1,9.6,40.7l17,24.73,44.78-59a4,4,0,0,1,6.37,4.83L30.94,73A5.52,5.52,0,0,1,26.56,75.19Z"/></svg>
+  </div>
   <PerformanceHeader item={item} />
 </li>
 
@@ -28,6 +30,15 @@
       border-radius: 0.25em;
       margin-top: 0.25em;
       flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon {
+      width: 0.9em;
+      height: 0.9em;
+      fill: #fff;
     }
 
     .item {

@@ -24,7 +24,12 @@ Please note that only images below the fold should be lazy-loaded. Prevent to la
 
 ### ProductTile.vue ###
 \`\`<li><img src="/image.png" :lazy="lazy" alt="" /></li>\`\`
-`,
+
+
+We can also use importance attribute (high or low) on a <script>, <img>, or <link> element (Blink only). In fact, it’s a great way to deprioritize images in carousels, as well as re-prioritize scripts. However, sometimes we might need a bit more granular control.
+
+\`\`<img src="less-important-image.svg" importance="low" ... />
+<link rel="preload" importance="low" href="/script.js" as="script" />\`\``,
         solutions: [],
         canIUse: 'loading-lazy-attr',
     },
@@ -87,6 +92,17 @@ Once you have added the extension, I found that it didn’t work right away and 
         links: [
           'https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html',
           'https://quixdb.github.io/squash-benchmark/#results-table'
+        ]
+    },
+   {
+        slug: "caching-headers",
+        title: "Set caching headers for assets",
+        description: "",
+        category: Category.Server,
+        disciplines: [Discipline.DevOps],
+        usage: `\`\`Cache-Control: max-age: 31556952, immutable\`\``,
+        links: [
+          'https://web.dev/stale-while-revalidate/',
         ]
     },
 

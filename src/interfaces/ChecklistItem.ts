@@ -13,6 +13,7 @@ export enum Category {
     JavaScript = "JavaScript",
     CSS = "CSS",
     Images = "Images",
+    Server = "Server"
 }
 
 export interface ISolution {
