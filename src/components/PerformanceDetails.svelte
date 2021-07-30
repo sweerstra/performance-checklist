@@ -18,9 +18,10 @@
   </div>
 {/if}
 
-{#if item.canIUse}
+{#if item.canIUse || item.links}
   <h2>Links</h2>
   <ul>
+    {#if item.canIUse}
     <li>
       <a
         href="{`https://caniuse.com/${item.canIUse}`}"
@@ -31,6 +32,21 @@
         https://caniuse.com/{item.canIUse}
       </a>
     </li>
+    {/if}
+    {#if item.links}
+      {#each item.links as link}
+      <li>
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener"
+          class="can-i-use"
+        >
+          {link}
+        </a>
+      </li>
+      {/each}
+    {/if}
   </ul>
 {/if}
 
