@@ -80,7 +80,7 @@ These values should be provided by the backend.
         disciplines: [Discipline.Frontend],
         usage: `First, login to your Microsoft Azure portal and open up the blade for the Web App that you wan to configure. From the Web App blade, select the Application Settings blade.
 
-On the Application Settings blade, we don’t need to change anything but we do need to check something. Check the value for Platform. As you can see above, my site is 32-bit but yours may be 64-bit. I used to use 64-bit until someone showed me this article by Scott Hansleman, Penny Pinching in the Cloud.
+On the Application Settings blade, you don’t need to change anything but we do need to check something. Check the value for Platform. As you can see above, my site is 32-bit but yours may be 64-bit. I used to use 64-bit until someone showed me this article by Scott Hansleman, Penny Pinching in the Cloud.
 
 Once you have the architecture for your site, scroll down the list of Web App blades and open the Extensions blade.
 
