@@ -25,7 +25,9 @@
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0",
+    "contentful": "^8.4.2",
+    "dotenv": "^10.0.0"
   },
   "dependencies": {
     "prismjs": "^1.24.1",
