@@ -3,7 +3,6 @@
   import { fly } from "svelte/transition";
   import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
   import checklistData from "../data/checklist";
-  import contentfulData from "../data/contentful";
   import FilteredChecklist from "../containers/FilteredChecklist.svelte";
   import PerformanceDetails from "../components/PerformanceDetails.svelte";
   
