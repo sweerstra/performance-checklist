@@ -5,7 +5,12 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
+import replace from "@rollup/plugin-replace";
 import css from "rollup-plugin-css-only";
+import dotenv from "dotenv";
+
+// expose variables from .env file
+dotenv.config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -43,6 +48,15 @@ export default {
     file: "public/build/bundle.js",
   },
   plugins: [
+    replace({
+      values: {
+        'process.env.NODE_ENV': JSON.stringify(production),
+        'process.env.ENVIRONMENT_NAME': JSON.stringify(process.env.ENVIRONMENT_NAME),
+        'process.env.STACK_API_KEY': JSON.stringify(process.env.STACK_API_KEY),
+        'process.env.DELIVERY_TOKEN': JSON.stringify(process.env.DELIVERY_TOKEN),
+      },
+      preventAssignment: true,
+    }),
     svelte({
       preprocess: sveltePreprocess({ sourceMap: !production, postcss: true }),
       compilerOptions: {

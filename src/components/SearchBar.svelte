@@ -1,8 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
 
-    export let className: string;
-
     let searchTerm: string = "";
 
     const dispatch = createEventDispatcher();

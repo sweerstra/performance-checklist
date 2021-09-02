@@ -1,19 +1,29 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
-	import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
+	import { createEventDispatcher } from "svelte";
+	import { query } from "svelte-apollo";
+	import type { ReadableQuery } from "svelte-apollo";
+	import type { ChecklistItemModel, ChecklistQueryResponse } from "../interfaces/ChecklistItem";
 	import checklistData from "../data/checklist";
 	import Checklist from "../components/Checklist.svelte";
 	import SearchBar from "../components/SearchBar.svelte";
+	import { GET_CHECKLIST } from "../data/queries";
 
-    const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
 	export let selectedItem: ChecklistItemModel;
 
-	let checklist: ChecklistItemModel[] = checklistData;
+	const checklistResponse = query(GET_CHECKLIST) as ReadableQuery<ChecklistQueryResponse>;
+	let checklist: ChecklistItemModel[] = [];
+
+	$: {
+		if ($checklistResponse.data) {
+			checklist = $checklistResponse.data.all_item.items;
+		}
+	}
 
 	function onChecklistItemSelect(event: CustomEvent<ChecklistItemModel>) {
 		const { slug } = event.detail;
-		dispatch('select', slug);
+		dispatch("select", slug);
 	}
 
 	function filterChecklistItems(searchTerm: string) {
@@ -42,7 +52,7 @@
 </script>
 
 <div>
-	<SearchBar on:search={onSearch} className="margin-bottom-4" />
+	<SearchBar on:search={onSearch} />
 
 	<Checklist
 		items={checklist}

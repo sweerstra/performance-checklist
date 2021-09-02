@@ -1,11 +1,22 @@
 <script lang="ts">
   import { navigate } from "svelte-routing";
+  import { query } from "svelte-apollo";
+  import type { ReadableQuery  } from "svelte-apollo";
   import { fly } from "svelte/transition";
-  import type { ChecklistItemModel } from "../interfaces/ChecklistItem";
-  import checklistData from "../data/checklist";
+  import type { ChecklistItemModel, ChecklistQueryResponse } from "../interfaces/ChecklistItem";
+  // import checklistData from "../data/checklist";
   import FilteredChecklist from "../containers/FilteredChecklist.svelte";
   import PerformanceDetails from "../components/PerformanceDetails.svelte";
+  import { GET_CHECKLIST } from "../data/queries";
 
+  const checklistResponse = query(GET_CHECKLIST) as ReadableQuery<ChecklistQueryResponse>;
+  let checklist: ChecklistItemModel[] = [];
+
+  $: {
+    if ($checklistResponse.data) {
+      checklist = $checklistResponse.data.all_item.items;
+    }
+  }
   export let slug: string = undefined;
 
   let selectedItem: ChecklistItemModel;
@@ -63,7 +74,7 @@
   .page {
     max-width: 60em;
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 0 1em 4em;
   }
 
   .container {
@@ -74,6 +85,8 @@
     width: 36em;
     padding: 1em 1em;
     background: #303134;
+    min-height: 100vh;
+    overflow-y: auto;
   }
 
   h1 {

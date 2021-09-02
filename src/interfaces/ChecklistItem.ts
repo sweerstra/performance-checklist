@@ -32,3 +32,11 @@ export interface ChecklistItemModel {
     canIUse?: string,
     links?: [string]
 };
+
+
+// automate types from graphQL?
+export interface ChecklistQueryResponse {
+    all_item: {
+        items: ChecklistItemModel[]
+    }
+}
