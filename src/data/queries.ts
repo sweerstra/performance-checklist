@@ -9,7 +9,6 @@ export const GET_CHECKLIST = gql`
                 description
                 disciplines
                 title
-                usage
             }
         }
     }
