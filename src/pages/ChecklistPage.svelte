@@ -5,25 +5,25 @@
   import checklistData from "../data/checklist";
   import FilteredChecklist from "../containers/FilteredChecklist.svelte";
   import PerformanceDetails from "../components/PerformanceDetails.svelte";
-  
-  export let slug: string = undefined;
+
+  export let url: string = undefined;
 
   let selectedItem: ChecklistItemModel;
 
-  // update selectedItem when slug changes
-  $: selectedItem = getChecklistItemBySlug(slug);
+  // update selectedItem when url changes
+  $: selectedItem = getChecklistItemByurl(url);
 
   function onChecklistItemSelect(event: CustomEvent<string>) {
-    const slug = event.detail;
-    navigateToItem(slug);
+    const url = event.detail;
+    navigateToItem(url);
   }
 
-  function navigateToItem(slug: string) {
-    navigate(`/${slug}`, { replace: true });
+  function navigateToItem(url: string) {
+    navigate(url, { replace: true });
   }
 
-  function getChecklistItemBySlug(slug: string) {
-    return checklistData.find((checklistItem) => checklistItem.slug === slug);
+  function getChecklistItemByurl(url: string) {
+    return checklistData.find((checklistItem) => checklistItem.url === url);
   }
 
   function onClose() {

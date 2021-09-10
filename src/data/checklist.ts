@@ -2,7 +2,7 @@ import { ChecklistItemModel, Discipline, Category, Framework } from '../interfac
 
 export default [
     {
-        slug: "lazy-loading-image",
+        url: "lazy-loading-image",
         title: "Lazy load images and iframe",
         description: "Images below the fold should be only loaded when visible.",
         category: Category.Images,
@@ -34,7 +34,7 @@ We can also use importance attribute (high or low) on a <script>, <img>, or <lin
         canIUse: 'loading-lazy-attr',
     },
     {
-        slug: "image-formats",
+        url: "image-formats",
         title: "Use modern image formats",
         description: "Modern image like AVIF or WebP formats can reduce the imagesize by over 50%.",
         category: Category.Images,
@@ -45,7 +45,7 @@ We can also use importance attribute (high or low) on a <script>, <img>, or <lin
         ]
     },
     {
-        slug: "image-sizes",
+        url: "image-sizes",
         title: "Define width and height",
         description: "Set the width and height of images to prevent to avoid layout jumps during the page load.",
         category: Category.Images,
@@ -61,7 +61,7 @@ These values should be provided by the backend.
         ]
     },
     {
-        slug: "css-animations",
+        url: "css-animations",
         title: "Only animate transform and opacity in css",
         description: "Browsers can animate transform and opacity cheaply.",
         category: Category.CSS,
@@ -73,7 +73,7 @@ These values should be provided by the backend.
         ]
     },
     {
-        slug: "brotli",
+        url: "brotli",
         title: "Use Brotli for plain text compression",
         description: "Brotli is an open-source lossless data format and has 11 predefined quality levels for the encoder, with higher quality level demanding more CPU in exchange for a better compression ratio. Slower compression will ultimately lead to higher compression rates, yet still, Brotli decompresses fast. It’s worth noting though that Brotli with the compression level 4 is both smaller and compresses faster than Gzip.",
         category: Category.CSS,
@@ -95,7 +95,7 @@ Once you have added the extension, I found that it didn’t work right away and 
         ]
     },
    {
-        slug: "caching-headers",
+        url: "caching-headers",
         title: "Set caching headers for assets",
         description: "",
         category: Category.Server,

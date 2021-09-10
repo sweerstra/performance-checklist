@@ -22,7 +22,7 @@ export interface ISolution {
 }
 
 export interface ChecklistItemModel {
-    slug: string,
+    url: string,
     title: string,
     description: string,
     usage?: string,
@@ -36,7 +36,7 @@ export interface ChecklistItemModel {
 
 // automate types from graphQL?
 export interface ChecklistQueryResponse {
-    all_item: {
+    all_checklist_item: {
         items: ChecklistItemModel[]
     }
 }

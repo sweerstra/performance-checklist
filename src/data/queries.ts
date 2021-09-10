@@ -2,8 +2,9 @@ import gql from 'graphql-tag';
 
 export const GET_CHECKLIST = gql`
     query GetItems {
-        all_item {
+        all_checklist_item {
             items {
+                url
                 category
                 description
                 disciplines
