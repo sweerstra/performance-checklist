@@ -8,6 +8,7 @@ import typescript from "@rollup/plugin-typescript";
 import replace from "@rollup/plugin-replace";
 import css from "rollup-plugin-css-only";
 import dotenv from "dotenv";
+import json from "@rollup/plugin-json";
 
 // expose variables from .env file
 dotenv.config();
@@ -49,10 +50,15 @@ export default {
   plugins: [
     replace({
       values: {
-        'process.env.NODE_ENV': JSON.stringify(production),
-        'process.env.ENVIRONMENT_NAME': JSON.stringify(process.env.ENVIRONMENT_NAME),
-        'process.env.STACK_API_KEY': JSON.stringify(process.env.STACK_API_KEY),
-        'process.env.DELIVERY_TOKEN': JSON.stringify(process.env.DELIVERY_TOKEN),
+        "process.env.NODE_ENV": JSON.stringify(production),
+        "process.env.ENVIRONMENT_NAME": JSON.stringify(
+          process.env.ENVIRONMENT_NAME
+        ),
+        "process.env.STACK_API_KEY": JSON.stringify(process.env.STACK_API_KEY),
+        "process.env.DELIVERY_TOKEN": JSON.stringify(
+          process.env.DELIVERY_TOKEN
+        ),
+        "process.env.AUTHORIZATION": JSON.stringify(process.env.AUTHORIZATION),
       },
       preventAssignment: true,
     }),
@@ -77,6 +83,7 @@ export default {
       dedupe: ["svelte"],
     }),
     commonjs(),
+    json(),
     typescript({
       sourceMap: !production,
       inlineSources: !production,

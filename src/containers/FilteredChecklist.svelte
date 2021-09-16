@@ -19,10 +19,12 @@
     GET_CHECKLIST
   ) as ReadableQuery<ChecklistQueryResponse>;
   let checklist: ChecklistItemModel[] = [];
+  let project: any = null;
 
   $: {
     if ($checklistResponse.data) {
       checklist = $checklistResponse.data.all_checklist_item.items;
+      project = $checklistResponse.data.projects;
     }
   }
 
@@ -55,9 +57,9 @@
 
 <div>
   <SearchBar on:search={onSearch} />
-
   <Checklist
     items={checklist}
+    {project}
     isActiveItem={(item) => selectedItem && item.url === selectedItem.url}
     on:select={onChecklistItemSelect}
   />

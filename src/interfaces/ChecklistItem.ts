@@ -21,6 +21,10 @@ export interface ISolution {
     description: string,
 }
 
+export interface ISystem {
+  uid: string
+}
+
 export interface ChecklistItemModel {
     url: string,
     title: string,
@@ -31,6 +35,7 @@ export interface ChecklistItemModel {
     solutions: ISolution[],
     canIUse?: string,
     links?: [string]
+    system: ISystem
 };
 
 

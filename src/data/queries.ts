@@ -9,7 +9,28 @@ export const GET_CHECKLIST = gql`
                 description
                 disciplines
                 title
+                system {
+                  uid
+                }
             }
+        }
+        projects(uid: "blt761973ad0f210686") {
+          title
+          checked_items2
+          system {
+            uid
+          }
+          checkeditemsConnection {
+            edges {
+              node {
+                ... on ChecklistItem {
+                  system {
+                    uid
+                  }
+                }
+              }
+            }
+          }
         }
     }
 `
